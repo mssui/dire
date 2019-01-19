@@ -1,67 +1,76 @@
 <template>
   <div class="app">
     <navbar />
-    
-   <div v-for="(entry,index) in loopEntries" :key="index" class="columns">
-  <div class="column">
-    
-          <strong>League Name :{{ entry.league_name }}</strong> <small>League Id:{{ entry.league_id}}</small>
-          
-    <div class="columns is-mobile">
+       <div  v-for="(entry,index) in loopEntries" :key="index" class="columns box ">
+    <!-- Lig name top column starts-->
+     <div class="column">
+       LIG NAME {{ entry.league_name }}<br>
+         <div>WINNER</div>     <!-- If winner is true will be added here-->
+       League Id:{{ entry.league_id}}
+            </div>
+            <!-- Lig name top column finishes-->
+
+          <!-- Second line with boxes starts-->  
       <div class="column">
-       <!-- First Card Box starts -->
-<div class="box">
-  <article class="media">
+      <div class="column">
+       <div class="box"><!-- Radiant box starts--> 
+                 <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
-        <img src="../assets/radiant.png" alt="dire">
+        <img src="https://cdn.pbrd.co/images/HXbVDwk.png" alt="Image">
       </figure>
-
     </div>
     <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-        </p>
+      <div class="content">   
+         <p class="title is-4">Team Name {{ entry.radiant_name }}</p>
+        <p class="subtitle is-6">Team Score {{ entry.radiant_score }}</p>
       </div>
-    
+    </div>
+       <div class="media-right">
+      <p class="subtitle is-6">Team ID {{ entry.radiant_team_id }}</p>
     </div>
   </article>
-</div>
-      </div>
-      <div class="column">
-        <!-- Second Card Box starts -->
-<div class="box">
-  <article class="media">
+           </div>    
+            </div>
+            <div class="column">
+       <div class="box"><!-- Dire box starts--> 
+       <article class="media">
     <div class="media-left">
-      <figure class="image is-64x64">  
-        <img src="../assets/dire.png" alt="dire">
-      </figure>
+      <figure class="image is-64x64">
+              <img src="https://cdn.pbrd.co/images/HXbVkFz.png" alt="Image">
+       </figure>
     </div>
     <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-          <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-        </p>
+      <div class="content">   
+         <p class="title is-4">Team Name {{ entry.dire_name }}</p>
+        <p class="subtitle is-6">Team Score  {{ entry.dire_score }}</p>
       </div>
+    </div>
+       <div class="media-right">
+      <p class="subtitle is-6">Team ID {{ entry.dire_team_id}} </p>
     </div>
   </article>
-</div>
-      </div>
-    </div>
-  </div>
-    
-    
-    <!-- Footer Banner -->
-
-  </div>
+           </div>    
+            </div>
+            </div>
+<!-- Second line with boxes finishes-->  
+<!-- Last line data starts-->  
+             <div class="column">
+                <div class="column">
+                  <strong>Match ID:</strong>  {{ entry.match_id }}
+                </div>
+                <div class="column">
+                 <strong>Start Time:</strong> {{ entry.start_time }} 
+                </div>
+                <div class="column">
+                 <strong>Duration:</strong> {{ entry.duration }} 
+                </div>
+              </div>
+            </div>
+<!-- Last line data finishes-->  
+<!-- Footer Banner -->
   <footerComponent />
-  </div>
-      
+</div>      
 </template>
 <script>
 import axios from "axios";
@@ -85,16 +94,11 @@ export default {
   },
   
   created() {
-<<<<<<< HEAD
        axios.get('/datas')
-=======
-       axios.get('https://api.opendota.com/api/proMatches')
->>>>>>> 0a25978bb3cc4f07e35c00ee5af4e93eda2ad882
       .then(response => {
         this.matches = JSON.stringify(response.data);
         this.matches = JSON.parse(this.matches);
         console.log(this.matches);
-<<<<<<< HEAD
                  for (let i = 0; i < this.matches.length; i++) {
           const currentData = this.matches[i];
           this.loopEntries.push({
@@ -104,7 +108,7 @@ export default {
             radiant_team_id: currentData.radiant_team_id,
             radiant_name: currentData.radiant_name,
             dire_team_id: currentData.dire_team_id,
-            dire_dire_name: currentData.dire_dire_name,
+            dire_name: currentData.dire_name,
             leagueid: currentData.leagueid,
             league_name: currentData.league_name,
             series_id: currentData.series_id,
@@ -114,11 +118,6 @@ export default {
             radiant_win: currentData.radiant_win
             });
         }
-        console.log(this.loopEntries);
-        console.log(this.loopEntries[0]);
-=======
-
->>>>>>> 0a25978bb3cc4f07e35c00ee5af4e93eda2ad882
       })
       .catch(error => {
         console.log(error);
