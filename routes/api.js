@@ -5,7 +5,7 @@ const Datas = require('../services/data-service')
 
 // get a list of Datas from the db
 
-router.get('/data', async (req, res, next) => {
+router.get('/datas', async (req, res, next) => {
   const postMap = await Datas.findAll()
   let postData = []
   // For loop to filter the main data from postMap

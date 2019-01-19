@@ -1,19 +1,22 @@
 <template>
-  <div class="app">
+  <div class="app maincard">
     <navbar />
-       <div  v-for="(entry,index) in loopEntries" :key="index" class="columns box ">
-    <!-- Lig name top column starts-->
-     <div class="column">
-       LIG NAME {{ entry.league_name }}<br>
-         <div>WINNER</div>     <!-- If winner is true will be added here-->
-       League Id:{{ entry.league_id}}
-            </div>
-            <!-- Lig name top column finishes-->
-
-          <!-- Second line with boxes starts-->  
-      <div class="column">
-      <div class="column">
-       <div class="box"><!-- Radiant box starts--> 
+    <section class="hero is-primary x-lg">
+  <div class="hero-body">
+    <div class="container">
+      
+    </div>
+  </div>
+</section>
+    <div  v-for="(entry,index) in loopEntries" :key="index" class="container box is-fluid ">
+  <div class="container is-fluid">
+    LIG NAME <strong>{{ entry.league_name }}</strong>  League Id:{{ entry.leagueid}}<br>
+    <div class="column"></div>
+  </div>
+<div class="container is-fluid">
+<div class="columns ">
+<div class="column">
+ <div class="box"><!-- Radiant box starts--> 
                  <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
@@ -22,18 +25,17 @@
     </div>
     <div class="media-content">
       <div class="content">   
-         <p class="title is-4">Team Name {{ entry.radiant_name }}</p>
-        <p class="subtitle is-6">Team Score {{ entry.radiant_score }}</p>
+         <p class="title is-4"> {{ entry.radiant_name }}</p>
+        <p class="subtitle is-6">Score: {{ entry.radiant_score }}</p>
       </div>
     </div>
        <div class="media-right">
-      <p class="subtitle is-6">Team ID {{ entry.radiant_team_id }}</p>
+      <p class="subtitle is-6">Team ID: {{ entry.radiant_team_id }}</p>
     </div>
   </article>
            </div>    
-            </div>
-            <div class="column">
-       <div class="box"><!-- Dire box starts--> 
+</div> <div class="column">
+   <div class="box"><!-- Dire box starts--> 
        <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
@@ -42,32 +44,38 @@
     </div>
     <div class="media-content">
       <div class="content">   
-         <p class="title is-4">Team Name {{ entry.dire_name }}</p>
-        <p class="subtitle is-6">Team Score  {{ entry.dire_score }}</p>
+         <p class="title is-4">{{ entry.dire_name }}</p>
+        <p class="subtitle is-6">Score: {{ entry.dire_score }}</p>
       </div>
     </div>
        <div class="media-right">
-      <p class="subtitle is-6">Team ID {{ entry.dire_team_id}} </p>
+      <p class="subtitle is-6">Team ID: {{ entry.dire_team_id }}</p>
     </div>
   </article>
-           </div>    
-            </div>
-            </div>
-<!-- Second line with boxes finishes-->  
-<!-- Last line data starts-->  
-             <div class="column">
-                <div class="column">
-                  <strong>Match ID:</strong>  {{ entry.match_id }}
-                </div>
-                <div class="column">
-                 <strong>Start Time:</strong> {{ entry.start_time }} 
-                </div>
-                <div class="column">
-                 <strong>Duration:</strong> {{ entry.duration }} 
-                </div>
-              </div>
-            </div>
+</div>  
+</div>
+</div> 
+</div> 
+<div class="container is-fluid">
+       <div class="columns"> 
+       <div class="column">
+          <p class="subtitle is-6">Match ID: {{ entry.match_id }}</p>
+          <p class="subtitle is-6">Start Time: {{ entry.start_time }}</p>
+          <p class="subtitle is-6">Duration: {{ entry.duration }}</p>
+          
+    </div> 
+       <div class="column"> 
+         <p class="subtitle is-6">Series ID: {{ entry.series_id }}</p>
+          <p class="subtitle is-6">Series Type: {{ entry.series_type }}</p>
+       <p class="subtitle is-6">Winner</p>
+       <p class="title is-4">Team45</p>
+      </div>
+       </div>
+</div>
+</div>
+
 <!-- Last line data finishes-->  
+
 <!-- Footer Banner -->
   <footerComponent />
 </div>      
@@ -82,15 +90,12 @@ export default {
   data() {
     return {
       matches: [],
-      loopEntries: []
+      loopEntries: [] 
     };
   },
   components: {
     navbar,
     footerComponent
-  },
-  methods: {
-  
   },
   
   created() {
@@ -123,11 +128,20 @@ export default {
         console.log(error);
       });
  
-  },
-  mounted() {}
+  }
 };
 </script>
 
 <style>
+.x-lg{
+ margin-bottom: 1em;
+}
+.addgap{
+ margin: 1em;
+}
+.maincard{
+ background-color: hsl(0, 0%, 98%);
+}
+
 
 </style>
