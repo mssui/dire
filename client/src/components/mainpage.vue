@@ -48,7 +48,6 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
         </p>
       </div>
-
     </div>
   </article>
 </div>
@@ -86,11 +85,16 @@ export default {
   },
   
   created() {
+<<<<<<< HEAD
        axios.get('/datas')
+=======
+       axios.get('https://api.opendota.com/api/proMatches')
+>>>>>>> 0a25978bb3cc4f07e35c00ee5af4e93eda2ad882
       .then(response => {
         this.matches = JSON.stringify(response.data);
         this.matches = JSON.parse(this.matches);
         console.log(this.matches);
+<<<<<<< HEAD
                  for (let i = 0; i < this.matches.length; i++) {
           const currentData = this.matches[i];
           this.loopEntries.push({
@@ -112,6 +116,9 @@ export default {
         }
         console.log(this.loopEntries);
         console.log(this.loopEntries[0]);
+=======
+
+>>>>>>> 0a25978bb3cc4f07e35c00ee5af4e93eda2ad882
       })
       .catch(error => {
         console.log(error);
