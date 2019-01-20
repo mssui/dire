@@ -1,75 +1,72 @@
 <template>
   <div class="app maincard">
     <navbar />
-    <section class="hero is-primary x-lg">
+    <section class="hero maincard ">
   <div class="hero-body">
     <div class="container">
       
     </div>
   </div>
 </section>
-    <div  v-for="(entry,index) in loopEntries" :key="index" class="container box is-fluid ">
-  <div class="container is-fluid">
-    LIG NAME <strong>{{ entry.league_name }}</strong>  League Id:{{ entry.leagueid}}<br>
+    <div  v-for="(entry,index) in loopEntries" :key="index" class="container box is-fluid maincard">
+  <div class="container is-fluid has-text-centered ">
+    <p class="title is-4 has-text-grey-lighter">LIG: <strong>{{ entry.league_name }}</strong></p>
     <div class="column"></div>
   </div>
-<div class="container is-fluid">
+<div class="container is-fluid ">
 <div class="columns ">
 <div class="column">
- <div class="box"><!-- Radiant box starts--> 
+ <div class="box boxcolor"><!-- Radiant box starts--> 
                  <article class="media">
     <div class="media-left">
       <figure class="image is-64x64">
         <img src="https://cdn.pbrd.co/images/HXbVDwk.png" alt="Image">
       </figure>
     </div>
-    <div class="media-content">
+    <div class="media-content has-text-centered">
       <div class="content">   
          <p class="title is-4"> {{ entry.radiant_name }}</p>
-        <p class="subtitle is-6">Score: {{ entry.radiant_score }}</p>
+        <p class="subtitle is-6">Team ID: {{ entry.radiant_team_id }}</p>
       </div>
     </div>
-       <div class="media-right">
-      <p class="subtitle is-6">Team ID: {{ entry.radiant_team_id }}</p>
+       <div class="media-right has-text-centered">
+     Score <br><p class="subtitle is-2"> <i class="fas fa-shield-alt"></i>{{ entry.radiant_score}}</p>
     </div>
   </article>
            </div>    
 </div> <div class="column">
-   <div class="box"><!-- Dire box starts--> 
+   <div class="box boxcolor x-lg"><!-- Dire box starts--> 
        <article class="media">
-    <div class="media-left">
+      <div class="media-left has-text-centered">
+     Score <br><p class="subtitle is-2"> <i class="fas fa-skull-crossbones"></i>{{ entry.dire_score }}</p>
+    </div>
+    <div class="media-content has-text-centered">
+      <div class="content">   
+         <p class="title is-4">{{ entry.dire_name }}</p>
+        <p class="subtitle is-6">Team ID: {{ entry.dire_team_id }}</p>
+      </div>
+    </div>
+     
+    <div class="media-right">
       <figure class="image is-64x64">
               <img src="https://cdn.pbrd.co/images/HXbVkFz.png" alt="Image">
        </figure>
-    </div>
-    <div class="media-content">
-      <div class="content">   
-         <p class="title is-4">{{ entry.dire_name }}</p>
-        <p class="subtitle is-6">Score: {{ entry.dire_score }}</p>
-      </div>
-    </div>
-       <div class="media-right">
-      <p class="subtitle is-6">Team ID: {{ entry.dire_team_id }}</p>
     </div>
   </article>
 </div>  
 </div>
 </div> 
 </div> 
-<div class="container is-fluid">
-       <div class="columns"> 
+<div class="container is-fluid has-text-centered  x-lg">
+  <p class="subtitle is-4 has-text-grey-lighter">Start Time: {{moment(entry.start_time).format('hh:mm')}} | Duration: {{moment(entry.duration).format('hh:mm')}}</p>
+         
+       <div class="columns  has-text-centered"> 
        <div class="column">
-          <p class="subtitle is-6">Match ID: {{ entry.match_id }}</p>
-          <p class="subtitle is-6">Start Time: {{ entry.start_time }}</p>
-          <p class="subtitle is-6">Duration: {{ entry.duration }}</p>
+          <p class="subtitle is-6 has-text-grey-light">Match ID: {{ entry.match_id }} | Series ID: {{ entry.series_id }} | Series Type: {{ entry.series_type }} | League ID:{{ entry.leagueid}}</p>
+          
           
     </div> 
-       <div class="column"> 
-         <p class="subtitle is-6">Series ID: {{ entry.series_id }}</p>
-          <p class="subtitle is-6">Series Type: {{ entry.series_type }}</p>
-       <p class="subtitle is-6">Winner</p>
-       <p class="title is-4">Team45</p>
-      </div>
+     
        </div>
 </div>
 </div>
@@ -97,7 +94,7 @@ export default {
     navbar,
     footerComponent
   },
-  
+
   created() {
        axios.get('/datas')
       .then(response => {
@@ -140,8 +137,27 @@ export default {
  margin: 1em;
 }
 .maincard{
- background-color: hsl(0, 0%, 98%);
+ /* background-color: hsl(0, 0%, 98%); */
+background: rgb(104,95,148);
+background: linear-gradient(90deg, rgba(104,95,148,1) 0%, rgba(35,21,54,1) 40%, rgba(20,5,33,1) 60%, rgba(116,95,156,1) 100%);
+}
+.boxcolor{
+background: rgb(207,207,207);
+background: linear-gradient(90deg, rgba(207,207,207,1) 0%, rgba(233,230,204,1) 50%, rgba(181,181,193,1) 100%);
 }
 
-
+.winner {
+    content: "\25AE";  /* f3ed this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    left:-5px;
+    position:absolute;
+    top:0;
+ }
+ .dead {
+    content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    left:-5px;
+    position:absolute;
+    top:0;
+ }
 </style>
