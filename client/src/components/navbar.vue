@@ -1,12 +1,10 @@
 <template>
 <div id="app">
-   <!--
-ESKI OLAN BASLAR    -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item">
         <router-link :to="{name: 'mainpage'}">
-             <strong>Match Fixture</strong> 
+             <strong>Match Fix</strong> 
           </router-link>
       </a>
       <a role="button"
@@ -46,23 +44,21 @@ ESKI OLAN BASLAR    -->
 </template>
 
 <script>
-import axios from "axios";
-
+import axios from 'axios';
 
 export default {
-  name: "Navbar",
-  data() {
-    return {
-      showNav: false
-     
-    };
-  },
-  components: {
+	name: 'Navbar',
+	data() {
+		return {
+			showNav: false
+		};
+	},
+	components: {
     
-  },
-  methods: {
+	},
+	methods: {
    
-  }
+	}
 };
 </script>
 

@@ -27,7 +27,6 @@ router.get('/datas', async (req, res, next) => {
       radiant_win: postMap[i].radiant_win
     })
   }
-
   res.send(postData)
  
 })

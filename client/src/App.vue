@@ -4,19 +4,19 @@
 </template>
 
 <script>
-import mainpage from "./components/mainpage";
+import mainpage from './components/mainpage';
 
 
 export default {
-  name: "App",
-  components: {
-    mainpage,
+	name: 'App',
+	components: {
+		mainpage,
    
-  },
-  data() {
-    return {
-      //
-    };
-  }
+	},
+	data() {
+		return {
+			//
+		};
+	}
 };
 </script>

@@ -4,7 +4,6 @@ async function findAll() {
     return dataModel.find()
 }
 
-
 module.exports = {
     findAll
 };

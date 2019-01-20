@@ -2,7 +2,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Team Fix</strong> by Aslı Arı. The source code is published<a href="https://github.com/mssui">
+          <strong>Match Fix</strong> by Aslı Arı. The source code is published<a href="https://github.com/mssui">
             on GitHub
           </a>
         </p>
@@ -12,8 +12,8 @@
 </template>
 <script>
 export default {
-  name: 'footerComponent',
-  components: {
-  },
-}
+	name: 'footerComponent',
+	components: {
+	},
+};
 </script>
