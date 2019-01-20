@@ -51,7 +51,7 @@ On root folder run the following command to start backend server
 ```
 node server
 ```
-Now yout backend is working on http://localhost:3030/
+Now your backend is working on http://localhost:3030/
 And your frontend working on http://localhost:8080/
 
 ## How to use?
